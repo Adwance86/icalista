@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ICA – Lägg till vara</title>
+
+  <style>
+    :root {
+      --crop-top: 140px;     /* tar bort ICA-header */
+      --view-height: 220px;  /* visar bara "Lägg till vara" */
+      --zoom: 1.15;          /* zoom för att fylla bredden */
+      --bg: #f6f3ef;         /* ICA-lik bakgrund */
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: var(--bg);
+      overflow: hidden;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .frame {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    iframe {
+      position: absolute;
+      top: calc(-1 * var(--crop-top));
+      left: 0;
+      width: 100vw;
+      height: calc(var(--view-height) + var(--crop-top));
+      border: 0;
+      background: var(--bg);
+
+      transform: scale(var(--zoom));
+      transform-origin: top left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="frame">
+    <iframe
+      src="https://www.ica.se/inkopslista/l?shoppingListId=30147471"
+      loading="eager"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</body>
+</html>
